@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIプログラミング学習コミュニティ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --dark-bg: #121212;
+            --light-text: #e0e0e0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.2);
+        }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: move 20s linear infinite;
+        }
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, 100px); }
+        }
+        .hero-image {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 1rem auto 0;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary-color);
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .feature-card .icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            stroke: var(--secondary-color);
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .target-list {
+            list-style: none;
+            padding-left: 0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .target-list li {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+        .target-list li:hover {
+            transform: translateX(10px);
+        }
+        .final-cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        }
+        footer {
+            background: #0a0a0a;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.1rem; }
+            .section-title { font-size: 2.2rem; }
+            .hero-image { max-width: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="Gemini_Generated_lp_Image.png" alt="AI Technology Concept" class="hero-image reveal">
+            <h1 class="reveal">AIプログラミングを、仲間と共に。</h1>
+            <p class="reveal">未経験からでも安心。最新のAI技術を学び、実践するコミュニティへようこそ。</p>
+            <a href="https://discord.gg/your-invite-link" class="cta-button reveal" target="_blank">Discordに参加する</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal">本コミュニティで学べること</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal">
+                Pythonの基礎から、機械学習、ディープラーニング、データサイエンス、そしてAIを活用したWebアプリケーション開発まで。
+                体系的かつ実践的な知識を、同じ目標を持つ仲間たちと一緒に学ぶことができます。
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title reveal">コミュニティの特長</h2>
+            <div class="features">
+                <div class="feature-card reveal">
+                    <svg class="icon" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.625 10.5c.621 0 1.125-.504 1.125-1.125s-.504-1.125-1.125-1.125-1.125.504-1.125 1.125.504 1.125 1.125 1.125z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.375 10.5c.621 0 1.125-.504 1.125-1.125s-.504-1.125-1.125-1.125-1.125.504-1.125 1.125.504 1.125 1.125 1.125z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 14.25c-1.985 0-3.805.998-4.875 2.625" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <h3>質問し放題の文化</h3>
+                    <p>初心者から上級者まで、わからないことは何でも質問できます。教え合う文化が根付いています。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <svg class="icon" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <h3>定期的な勉強会</h3>
+                    <p>毎週のようにもくもく会やテーマ別勉強会を開催。モチベーションを維持し、共に成長します。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <svg class="icon" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.25 6.083c-.02.02-.04.04-.06.06a1.5 1.5 0 01-1.88 0l-3.86-3.86a1.5 1.5 0 010-2.12l.1-.1a1.5 1.5 0 012.12 0l3.86 3.86a1.5 1.5 0 010 2.12l-.1.1z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.25 6.083L17.917 2.42a1.5 1.5 0 012.12 0l.1.1a1.5 1.5 0 010 2.12l-3.86 3.86a1.5 1.5 0 01-2.12 0l-.1-.1z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.75 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9-9-4.03-9-9z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 12v3.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <h3>実践的なプロジェクト</h3>
+                    <p>チームを組んでAIモデルやアプリケーションを開発。ポートフォリオになる成果物を作ります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal">こんな方におすすめ</h2>
+            <ul class="target-list">
+                <li class="reveal">AIプログラミングに興味があるけど、何から始めればいいかわからない方</li>
+                <li class="reveal">独学での学習に限界を感じ、モチベーションが続かない方</li>
+                <li class="reveal">一緒に学習する仲間や、気軽に質問できるメンターが欲しい方</li>
+                <li class="reveal">最新のAI技術トレンドをキャッチアップし、スキルをアップデートし続けたい方</li>
+                <li class="reveal">自分のアイデアを形にするための技術力を身につけたい方</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section final-cta">
+        <div class="container">
+            <h2 class="section-title reveal">さあ、AI学習の第一歩を踏み出そう</h2>
+            <p class="reveal" style="color: #fff; opacity: 0.9;">あなたの参加を、コミュニティメンバー一同、心よりお待ちしています。</p>
+            <a href="https://discord.gg/your-invite-link" class="cta-button reveal" target="_blank">今すぐDiscordに参加する</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AIプログラミング学習コミュニティ. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealElements.forEach(elem => {
+            observer.observe(elem);
+        });
+    </script>
+
+</body>
+</html>
